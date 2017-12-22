@@ -29,6 +29,10 @@ class Post(models.Model):
     category = models.ForeignKey(Category)
     tags = models.ManyToManyField(Tag, blank=True)
     author = models.ForeignKey(User)
+    comment_count = models.IntegerField(default=0)
+    read_count = models.IntegerField(default=0)
+    content_count = models.IntegerField(default=0)
+    isDelete = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
