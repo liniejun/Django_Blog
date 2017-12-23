@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'comments',
 ]
 
 MIDDLEWARE = [
@@ -116,8 +117,9 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
-
+# USE_TZ = True
+# 为true时，归档查询的结果为空
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
