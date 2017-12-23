@@ -30,7 +30,6 @@ class Post(models.Model):
     category = models.ForeignKey(Category)
     tags = models.ManyToManyField(Tag, blank=True)
     author = models.ForeignKey(User)
-    comment_count = models.IntegerField(default=0)
     read_count = models.IntegerField(default=0)
     content_count = models.IntegerField(default=0)
     isDelete = models.BooleanField(default=False)
@@ -44,3 +43,6 @@ class Post(models.Model):
         # 因此 Django 能够顺利地找到 blog 应用下 name 为 detail 的视图函数，
         # 于是 reverse 函数会去解析这个视图函数对应的 URL
         return reverse('blog:detail', kwargs={'id':self.id})
+
+    def Meta(self):
+        ordering = ['-create_time']
